@@ -1,0 +1,267 @@
+# pq-cloud-scan targets
+# Columns (tab separated): provider  service  proto  host  port
+#   proto is tls or ssh. {region} is replaced by --region (per-provider defaults below).
+#   Default regions: aws=us-east-1  azure=eastus  gcp=us-central1  ibm=us-south  oracle=us-ashburn-1
+# Add your own rows freely; lines starting with # are ignored.
+
+# ---------------------------------------------------------------- AWS
+aws	sts	tls	sts.{region}.amazonaws.com	443
+aws	iam	tls	iam.amazonaws.com	443
+aws	signin	tls	signin.aws.amazon.com	443
+aws	console	tls	console.aws.amazon.com	443
+aws	s3	tls	s3.{region}.amazonaws.com	443
+aws	ec2	tls	ec2.{region}.amazonaws.com	443
+aws	kms	tls	kms.{region}.amazonaws.com	443
+aws	acm	tls	acm.{region}.amazonaws.com	443
+aws	acm-pca	tls	acm-pca.{region}.amazonaws.com	443
+aws	secretsmanager	tls	secretsmanager.{region}.amazonaws.com	443
+aws	ssm	tls	ssm.{region}.amazonaws.com	443
+aws	dynamodb	tls	dynamodb.{region}.amazonaws.com	443
+aws	lambda	tls	lambda.{region}.amazonaws.com	443
+aws	sqs	tls	sqs.{region}.amazonaws.com	443
+aws	sns	tls	sns.{region}.amazonaws.com	443
+aws	cloudformation	tls	cloudformation.{region}.amazonaws.com	443
+aws	rds	tls	rds.{region}.amazonaws.com	443
+aws	eks	tls	eks.{region}.amazonaws.com	443
+aws	ecr	tls	api.ecr.{region}.amazonaws.com	443
+aws	logs	tls	logs.{region}.amazonaws.com	443
+aws	cloudwatch	tls	monitoring.{region}.amazonaws.com	443
+aws	elasticloadbalancing	tls	elasticloadbalancing.{region}.amazonaws.com	443
+aws	transfer-api	tls	transfer.{region}.amazonaws.com	443
+aws	apigateway	tls	apigateway.{region}.amazonaws.com	443
+aws	cloudfront-api	tls	cloudfront.amazonaws.com	443
+aws	route53	tls	route53.amazonaws.com	443
+aws	codecommit-https	tls	git-codecommit.{region}.amazonaws.com	443
+aws	codecommit-ssh	ssh	git-codecommit.{region}.amazonaws.com	22
+
+# ---------------------------------------------------------------- Azure
+azure	resource-manager	tls	management.azure.com	443
+azure	classic-management	tls	management.core.windows.net	443
+azure	entra-login	tls	login.microsoftonline.com	443
+azure	graph	tls	graph.microsoft.com	443
+azure	portal	tls	portal.azure.com	443
+azure	devops	tls	dev.azure.com	443
+azure	container-registry-mcr	tls	mcr.microsoft.com	443
+azure	log-analytics	tls	api.loganalytics.io	443
+azure	app-insights	tls	api.applicationinsights.io	443
+azure	cognitive	tls	{region}.api.cognitive.microsoft.com	443
+azure	batch	tls	{region}.batch.azure.com	443
+azure	kusto	tls	help.kusto.windows.net	443
+azure	devops-ssh	ssh	ssh.dev.azure.com	22
+azure	visualstudio-ssh	ssh	vs-ssh.visualstudio.com	22
+
+# ---------------------------------------------------------------- GCP
+gcp	googleapis-root	tls	www.googleapis.com	443
+gcp	oauth2	tls	oauth2.googleapis.com	443
+gcp	accounts	tls	accounts.google.com	443
+gcp	console	tls	console.cloud.google.com	443
+gcp	iam	tls	iam.googleapis.com	443
+gcp	resource-manager	tls	cloudresourcemanager.googleapis.com	443
+gcp	compute	tls	compute.googleapis.com	443
+gcp	storage	tls	storage.googleapis.com	443
+gcp	kms	tls	cloudkms.googleapis.com	443
+gcp	secretmanager	tls	secretmanager.googleapis.com	443
+gcp	bigquery	tls	bigquery.googleapis.com	443
+gcp	pubsub	tls	pubsub.googleapis.com	443
+gcp	gke	tls	container.googleapis.com	443
+gcp	run	tls	run.googleapis.com	443
+gcp	artifactregistry	tls	artifactregistry.googleapis.com	443
+gcp	logging	tls	logging.googleapis.com	443
+gcp	regional-kms	tls	cloudkms.{region}.rep.googleapis.com	443
+gcp	source-repos-ssh	ssh	source.developers.google.com	2022
+
+# ---------------------------------------------------------------- IBM Cloud (formerly Bluemix)
+ibm	console	tls	cloud.ibm.com	443
+ibm	iam	tls	iam.cloud.ibm.com	443
+ibm	resource-controller	tls	resource-controller.cloud.ibm.com	443
+ibm	global-catalog	tls	globalcatalog.cloud.ibm.com	443
+ibm	vpc	tls	{region}.iaas.cloud.ibm.com	443
+ibm	cos	tls	s3.{region}.cloud-object-storage.appdomain.cloud	443
+ibm	key-protect	tls	{region}.kms.cloud.ibm.com	443
+ibm	key-protect-quantum-safe	tls	qsc.{region}.kms.cloud.ibm.com	443
+ibm	kubernetes	tls	containers.cloud.ibm.com	443
+ibm	container-registry	tls	us.icr.io	443
+ibm	code-engine	tls	api.{region}.codeengine.cloud.ibm.com	443
+ibm	secrets-manager-api	tls	{region}.secrets-manager.cloud.ibm.com	443
+ibm	classic-infra	tls	api.softlayer.com	443
+ibm	legacy-bluemix	tls	api.ng.bluemix.net	443
+ibm	git-ssh	ssh	{region}.git.cloud.ibm.com	22
+
+# ---------------------------------------------------------------- Cloudflare
+cloudflare	api	tls	api.cloudflare.com	443
+cloudflare	dashboard	tls	dash.cloudflare.com	443
+cloudflare	www	tls	www.cloudflare.com	443
+cloudflare	apex	tls	cloudflare.com	443
+cloudflare	developers	tls	developers.cloudflare.com	443
+cloudflare	dns-over-https	tls	cloudflare-dns.com	443
+cloudflare	dns-1111	tls	one.one.one.one	443
+cloudflare	dns-over-tls	tls	one.one.one.one	853
+cloudflare	cdnjs	tls	cdnjs.cloudflare.com	443
+cloudflare	turnstile	tls	challenges.cloudflare.com	443
+cloudflare	radar	tls	radar.cloudflare.com	443
+cloudflare	speed	tls	speed.cloudflare.com	443
+cloudflare	workers-dev	tls	workers.cloudflare.com	443
+cloudflare	pages	tls	pages.cloudflare.com	443
+cloudflare	warp-api	tls	api.cloudflareclient.com	443
+
+# ---------------------------------------------------------------- Fastly
+fastly	api	tls	api.fastly.com	443
+fastly	manage	tls	manage.fastly.com	443
+fastly	www	tls	www.fastly.com	443
+fastly	apex	tls	fastly.com	443
+fastly	docs	tls	docs.fastly.com	443
+fastly	developer	tls	developer.fastly.com	443
+fastly	shared-tls	tls	global.ssl.fastly.net	443
+fastly	realtime-stats	tls	rt.fastly.com	443
+fastly	fiddle	tls	fiddle.fastly.dev	443
+fastly	insights	tls	fastly-insights.com	443
+
+# ---------------------------------------------------------------- Akamai (includes Akamai Cloud, formerly Linode)
+akamai	www	tls	www.akamai.com	443
+akamai	apex	tls	akamai.com	443
+akamai	control-center	tls	control.akamai.com	443
+akamai	techdocs	tls	techdocs.akamai.com	443
+akamai	developer	tls	developer.akamai.com	443
+akamai	learn	tls	learn.akamai.com	443
+akamai	community	tls	community.akamai.com	443
+akamai	edge-shared-cert	tls	a248.e.akamai.net	443
+akamai	cloud-manager	tls	cloud.linode.com	443
+akamai	cloud-api	tls	api.linode.com	443
+akamai	cloud-login	tls	login.linode.com	443
+akamai	cloud-www	tls	www.linode.com	443
+akamai	object-storage	tls	us-east-1.linodeobjects.com	443
+akamai	lish-ssh	ssh	lish-us-east.linode.com	22
+
+# ---------------------------------------------------------------- Oracle Cloud (OCI)
+oracle	console	tls	cloud.oracle.com	443
+oracle	login	tls	login.oci.oraclecloud.com	443
+oracle	www	tls	www.oracle.com	443
+oracle	docs	tls	docs.oracle.com	443
+oracle	status	tls	ocistatus.oraclecloud.com	443
+oracle	identity	tls	identity.{region}.oci.oraclecloud.com	443
+oracle	auth	tls	auth.{region}.oraclecloud.com	443
+oracle	compute-network	tls	iaas.{region}.oraclecloud.com	443
+oracle	objectstorage	tls	objectstorage.{region}.oraclecloud.com	443
+oracle	database	tls	database.{region}.oraclecloud.com	443
+oracle	kms	tls	kms.{region}.oraclecloud.com	443
+oracle	vaults	tls	vaults.{region}.oci.oraclecloud.com	443
+oracle	secrets	tls	secrets.vaults.{region}.oci.oraclecloud.com	443
+oracle	kubernetes	tls	containerengine.{region}.oraclecloud.com	443
+oracle	functions	tls	functions.{region}.oci.oraclecloud.com	443
+oracle	monitoring	tls	telemetry.{region}.oraclecloud.com	443
+oracle	container-registry	tls	iad.ocir.io	443
+oracle	devops-git-https	tls	devops.scmservice.{region}.oci.oraclecloud.com	443
+oracle	devops-git-ssh	ssh	devops.scmservice.{region}.oci.oraclecloud.com	22
+
+# ---------------------------------------------------------------- more protocols per vendor
+# proto may also be: quic, dtls, ike, dnssec, dnscurve, dnscrypt, starttls-smtp|imap|pop3|ldap|ftp|xmpp|postgres|mysql
+# For dnssec and dnscurve the host column is a zone name. For dnscrypt the service column is the provider name.
+aws	ses-smtp	starttls-smtp	email-smtp.{region}.amazonaws.com	587
+aws	ses-smtps	tls	email-smtp.{region}.amazonaws.com	465
+aws	cloudfront-quic	quic	aws.amazon.com	443
+aws	zone-amazonaws	dnssec	amazonaws.com	53
+aws	zone-aws	dnssec	aws.amazon.com	53
+azure	m365-smtp	starttls-smtp	smtp.office365.com	587
+azure	m365-imaps	tls	outlook.office365.com	993
+azure	microsoft-quic	quic	www.microsoft.com	443
+azure	zone-azure	dnssec	azure.com	53
+azure	zone-microsoft	dnssec	microsoft.com	53
+gcp	gmail-smtp	starttls-smtp	smtp.gmail.com	587
+gcp	gmail-imaps	tls	imap.gmail.com	993
+gcp	googleapis-quic	quic	www.googleapis.com	443
+gcp	storage-quic	quic	storage.googleapis.com	443
+gcp	zone-google	dnssec	google.com	53
+gcp	zone-googleapis	dnssec	googleapis.com	53
+ibm	console-quic	quic	cloud.ibm.com	443
+ibm	zone-ibm	dnssec	ibm.com	53
+oracle	console-quic	quic	cloud.oracle.com	443
+oracle	zone-oracle	dnssec	oracle.com	53
+oracle	zone-oraclecloud	dnssec	oraclecloud.com	53
+cloudflare	apex-quic	quic	cloudflare.com	443
+cloudflare	zone-cloudflare	dnssec	cloudflare.com	53
+fastly	www-quic	quic	www.fastly.com	443
+fastly	zone-fastly	dnssec	fastly.com	53
+akamai	www-quic	quic	www.akamai.com	443
+akamai	zone-akamai	dnssec	akamai.com	53
+
+# ---------------------------------------------------------------- dns-zones: a control group, not a vendor
+# Also holds the public NTS time servers (Netnod, PTB) as a reference for the ntp probe.
+# Signed top-level zones (Verisign .com, PIR .org, US .gov) and ietf.org show what deployed DNSSEC looks like
+# today, for comparison with the vendor zones above; dnscurve.org is the reference zone that proves the
+# DNSCurve probe works. Delete these rows if you do not want them in the totals.
+gcp	public-dns-dot	tls	dns.google	853
+gcp	public-dns-doh	tls	dns.google	443
+gcp	public-dns-doh3	quic	dns.google	443
+dns-zones	dnscurve-org	dnscurve	dnscurve.org	53
+dns-zones	tld-com	dnssec	com	53
+dns-zones	tld-org	dnssec	org	53
+dns-zones	tld-gov	dnssec	gov	53
+dns-zones	ietf	dnssec	ietf.org	53
+
+# ---------------------------------------------------------------- Resolver and DNS security companies
+adguard	dot	tls	dns.adguard-dns.com	853
+adguard	doh	tls	dns.adguard-dns.com	443
+adguard	doq	doq	dns.adguard-dns.com	853
+adguard	family-dot	tls	family.adguard-dns.com	853
+adguard	2.dnscrypt.default.ns1.adguard.com	dnscrypt	94.140.14.14	5443
+adguard	www	tls	adguard.com	443
+adguard	dns-console	tls	adguard-dns.io	443
+adguard	dns-api	tls	api.adguard-dns.io	443
+adguard	zone	dnssec	adguard-dns.com	53
+opendns	doh	tls	doh.opendns.com	443
+opendns	resolver-dot	tls	dns.opendns.com	853
+opendns	2.dnscrypt-cert.opendns.com	dnscrypt	208.67.222.222	443
+opendns	www	tls	www.opendns.com	443
+opendns	dashboard	tls	dashboard.opendns.com	443
+opendns	umbrella	tls	umbrella.cisco.com	443
+opendns	umbrella-dot	tls	dns.umbrella.com	853
+opendns	zone	dnssec	opendns.com	53
+quad9	dot	tls	dns.quad9.net	853
+quad9	doh	tls	dns.quad9.net	443
+quad9	doq	doq	dns.quad9.net	853
+quad9	dns11-dot	tls	dns11.quad9.net	853
+quad9	2.dnscrypt-cert.quad9.net	dnscrypt	9.9.9.9	8443
+quad9	www	tls	www.quad9.net	443
+quad9	zone	dnssec	quad9.net	53
+nextdns	dot	tls	dns.nextdns.io	853
+nextdns	doh	tls	dns.nextdns.io	443
+nextdns	doq	doq	dns.nextdns.io	853
+nextdns	www	tls	nextdns.io	443
+nextdns	console	tls	my.nextdns.io	443
+nextdns	api	tls	api.nextdns.io	443
+nextdns	zone	dnssec	nextdns.io	53
+cleanbrowsing	doh	tls	doh.cleanbrowsing.org	443
+cleanbrowsing	dot	tls	security-filter-dns.cleanbrowsing.org	853
+cleanbrowsing	www	tls	cleanbrowsing.org	443
+cleanbrowsing	zone	dnssec	cleanbrowsing.org	53
+controld	dot	tls	p0.freedns.controld.com	853
+controld	doh	tls	p0.freedns.controld.com	443
+controld	doq	doq	p0.freedns.controld.com	853
+controld	www	tls	controld.com	443
+controld	api	tls	api.controld.com	443
+controld	zone	dnssec	controld.com	53
+mullvad	dot	tls	dns.mullvad.net	853
+mullvad	doh	tls	dns.mullvad.net	443
+mullvad	base-dot	tls	base.dns.mullvad.net	853
+mullvad	www	tls	mullvad.net	443
+mullvad	api	tls	api.mullvad.net	443
+mullvad	zone	dnssec	mullvad.net	53
+
+# ---------------------------------------------------------------- time, ECH, mail per vendor
+aws	time	ntp	time.aws.com	123
+aws	mail-domain	mail	amazon.com	25
+aws	ech	ech	aws.amazon.com	443
+azure	mail-domain	mail	microsoft.com	25
+azure	ech	ech	www.microsoft.com	443
+gcp	time	ntp	time.google.com	123
+gcp	mail-domain	mail	gmail.com	25
+gcp	ech	ech	www.google.com	443
+ibm	mail-domain	mail	ibm.com	25
+oracle	mail-domain	mail	oracle.com	25
+cloudflare	time	ntp	time.cloudflare.com	123
+cloudflare	ech	ech	crypto.cloudflare.com	443
+cloudflare	mail-domain	mail	cloudflare.com	25
+fastly	mail-domain	mail	fastly.com	25
+akamai	mail-domain	mail	akamai.com	25
+dns-zones	nts-netnod	ntp	nts.netnod.se	123
+dns-zones	nts-ptb	ntp	ptbtime1.ptb.de	123
